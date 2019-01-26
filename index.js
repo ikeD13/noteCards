@@ -6,8 +6,8 @@ const config = require('./knexfile.js')[env];
 const knex = require('knex')(config);
 
 
-app.get('/', (req, res) => {
-    knex.select('*').from('darnell')
+app.get('/', (req, res, next) => {
+    knex('methods')
     .then((rows) => {
       res.send(rows);
     })
